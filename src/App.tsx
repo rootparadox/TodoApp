@@ -1,3 +1,4 @@
+import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import InputTodo from "./Components/InputTodo";
 import TodoCard from "./Components/TodoCards/TodoCard";
@@ -8,6 +9,7 @@ const App = () => {
       <Header />
       <InputTodo />
       <TodoCard />
+      <Footer />
     </div>
   );
 };
