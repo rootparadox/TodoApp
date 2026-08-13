@@ -1,6 +1,6 @@
 import { FiX } from "react-icons/fi";
 import type { Tasks, Task } from "../utils/task";
-import { type ChangeEvent, type MouseEvent } from "react";
+import { type ChangeEvent } from "react";
 import type { Dispatch, SetStateAction } from "react";
 
 interface CardProps {
