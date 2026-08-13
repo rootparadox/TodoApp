@@ -1,13 +1,40 @@
+import { useState } from "react";
+import InputTodo from "../InputTodo";
+import type { Tasks } from "../utils/task";
+import type { Dispatch, SetStateAction } from "react";
 import Card from "./Card";
+import Footer from "../Footer";
 
-const TodoCard = () => {
+const Todo = () => {
+  const [task, setTask] = useState<Tasks>([]);
+
   return (
     <>
-      <Card taskTitle="This is an example of task #1" />
-      <Card  taskTitle="This is an example of task #1" />
-      <Card  taskTitle="This is an example of task #1" />
+      <InputTodo task={task} setTask={setTask} />
+      <TodoCard tasks={task} setTask={setTask} />
+      <Footer tasksLength={task.length} />
     </>
   );
 };
 
-export default TodoCard;
+const TodoCard = ({
+  tasks,
+  setTask,
+}: {
+  tasks: Tasks;
+  setTask: Dispatch<SetStateAction<Tasks>>;
+}) => {
+  return (
+    <ul className="flex flex-col gap-4">
+      {tasks.map((task) => {
+        return (
+          <li key={task.id}>
+            <Card setTask={setTask} task={task} />
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
+export default Todo;
